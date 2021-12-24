@@ -1,0 +1,78 @@
+{% extends 'accounts/main.html' %}
+
+{% block title %}
+  Dashboard
+{% endblock title %}
+
+{% block content %}
+
+
+{% if request.user.is_superuser %}
+<br>
+	<br>
+<div class="row" >
+	
+	<div class="col-md-5 offset-1 ">
+		<h5>STUDENTS :</h5>
+		<hr>
+		<div class="card card-body">
+			<a class="btn btn-outline-primary  btn-sm btn-block" href="http://127.0.0.1:8000/admin/accounts/student/">Create Student</a>
+			<br>
+			<table class="table table-sm table-striped">
+				<tr>
+		
+					<th>Student</th>
+					<th>Phone</th>
+					<th>Email Id</th>
+					<th>Date_created</th>
+				</tr>
+
+				{% for Stu in Students %}
+				<tr>
+					
+					<td>{{Stu.name}}</td>
+					<td>{{Stu.phone}}</td>
+					<td>{{Stu.email}}</td>
+					<td>{{Stu.date_created}}</td>
+				</tr>
+				{% endfor %}
+
+			</table>
+		</div>
+	</div>
+
+	<div class="col-md-5  ">
+		<h5>TEACHERS :</h5>
+		<hr>
+		<div class="card card-body">
+			<a class="btn btn-outline-primary  btn-sm btn-block" href="http://127.0.0.1:8000/admin/accounts/teacher/">Create Teacher</a>
+			<br>
+			<table class="table table-sm table-striped">
+				<tr>
+		
+					<th>Teacher</th>
+					<th>Phone</th>
+					<th>Email Id</th>
+					<th>Date_created</th>
+				</tr>
+
+				{% for Teach in Teachers %}
+				<tr>
+					
+					<td>{{Teach.name}}</td>
+					<td>{{Teach.phone}}</td>
+					<td>{{Teach.email}}</td>
+					<td>{{Teach.date_created}}</td>
+					
+				</tr>
+				{% endfor %}
+
+			</table>
+		</div>
+	</div>
+
+</div>
+<br>
+<br>
+{% endif %}
+{% endblock %}

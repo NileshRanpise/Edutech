@@ -1,0 +1,72 @@
+{% extends 'accounts/main.html' %}
+
+{% block title %}
+User
+{% endblock title %}
+
+{% block content %}
+
+
+
+<br>
+<div class="row">
+	<br>
+	<div class="col-md" style="padding: 40px;">
+		<div class="card card-body" style="padding: 40px;">
+			<table class="table table-sm table-striped ">
+				<tr>
+					<th>Student </th>
+					<th>Date Upload</th>
+				
+				</tr>
+
+				{% for Stu in Students %}
+				<tr>
+					
+					<td>{{Stu.name}}</td>
+					<td>{{Stu.date_created}}</td>
+				</tr>
+				{% endfor %}
+				{% for Stu in Students %}
+				<a href="{% url 'student' Stu.id %}" class="btn">
+				  <div class="item"><img src="{{Stu.stuimg.url}}" alt="" height="200px">
+					
+				</a>
+				{% endfor %}
+	
+			</table>
+		</div>
+	</div>
+	<div class="col-md" style="padding: 40px;">
+		<div class="card card-body" style="padding: 40px;">
+			<table class="table table-sm table-striped ">
+				<tr>
+					<th>Teacher </th>
+					
+					<th>Date Upload</th>
+				
+				</tr>
+
+				{% for Stu in Students %}
+				<tr>
+					
+					<td>{{Stu.name}}</td>
+					
+					<td>{{Stu.date_created}}</td>
+				</tr>
+				{% endfor %}
+		
+				{% for teach in Teachers %}
+				<a href="{% url 'teacher' teach.id %}" class="btn">
+				  <div class="item"><img src="{{teach.teachimg.url}}" alt="" height="200px">
+					
+				</a>
+				{% endfor %}
+			</table>
+		</div>
+	</div>
+
+</div>
+<br>
+
+{% endblock content %}

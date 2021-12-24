@@ -1,0 +1,60 @@
+{% extends "accounts/main.html" %}
+{% load static %}
+
+{% block title %}
+Customers
+{% endblock title %}
+
+{% block content %}
+
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-md">  
+            <br>
+            <div class="card card-body">
+               
+                <table class="table table-sm table-striped">
+                    <h3> Customers :  </h3>
+                    <hr>
+                    <tr style="font-size: 20px;" >
+                        <th> Name </th>
+                        <th> Phone_No. </th>
+                        <th> Email_Id </th>
+                        <th> Date_Created </th>
+                    </tr>
+
+                    {% for c in cust  %}
+                    <tr>
+                       <td> {{c.name}} </td>
+                       <td> {{c.phone}} </td>
+                       <td> {{c.email}} </td>
+                       <td> {{c.date_created}} </td>
+                    </tr>  
+                    {% endfor %}
+
+
+
+                </table>
+
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+
+</div>
+<br>
+<br>
+<br>
+<br>
+
+</div>
+
+{% endblock content %}
